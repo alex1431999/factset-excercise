@@ -1,0 +1,32 @@
+[
+  {
+    "base": "EUR",
+    "target": "USD",
+    "rate": 1.2897
+  },
+  {
+    "base": "EUR",
+    "target": "SFK",
+    "rate": 1.3135
+  },
+  {
+    "base": "EUR",
+    "target": "GBP",
+    "rate": 0.8631
+  },
+  {
+    "base": "USD",
+    "target": "JPY",
+    "rate": 109.6200
+  },
+  {
+    "base": "SFK",
+    "target": "USD",
+    "rate": 0.9960
+  },
+  {
+    "base": "GBP",
+    "target": "CAD",
+    "rate": 1.7574
+  }
+]
