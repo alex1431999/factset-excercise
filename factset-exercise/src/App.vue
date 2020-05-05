@@ -23,6 +23,11 @@ export default {
 </script>
 
 <style>
+:root {
+  --primary-color: rgb(238, 238, 238);
+  --secondary-color: rgb(156, 192, 231);
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

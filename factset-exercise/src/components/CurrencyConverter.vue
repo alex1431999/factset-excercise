@@ -1,40 +1,47 @@
 <template>
-  <div class="currency-converter">
-    <p v-if="base && target && value && result">
-      {{value}} {{$t(`currencyConverter.currencies.${base}`)}} {{$t(`currencyConverter.equals`)}} {{result}} {{$t(`currencyConverter.currencies.${target}`)}}
-    </p>
+  <div class="currency-converter container">
+    <div class="jumbotron">
+      <p v-if="typeof(base) === 'string' && typeof(target) === 'string'">
+        {{value}} {{$t(`currencyConverter.currencies.${base}`)}} {{$t(`currencyConverter.equals`)}} {{result}} {{$t(`currencyConverter.currencies.${target}`)}}
+      </p>
 
-    <p>{{date}}</p>
+      <p>{{date}}</p>
+      
+      <div class="input-group">
+          <input
+            class="form-control spaced"
+            type="number" 
+            v-model="value" 
+            @input="valueOnInputHandler"
+          />
 
-    <input 
-      type="number" 
-      v-model="value" 
-      @input="valueOnInputHandler"
-    />
+        <select v-model="base" @change="baseOnChangeHandler" class="form-control spaced">
+          <option 
+            v-for="currency in currencyStrings" 
+            :value="currency" :key="currency">
+              {{$t(`currencyConverter.currencies.${currency}`)}}
+            </option>
+        </select>
+      </div>
 
-    <select v-model="base" @change="baseOnChangeHandler">
-      <option 
-        v-for="currency in currencyStrings" 
-        :value="currency" :key="currency">
-          {{$t(`currencyConverter.currencies.${currency}`)}}
-        </option>
-    </select>
-    <br/>
+      <div class="input-group">
+        <input
+          class="form-control spaced"
+          type="number" 
+          v-model="result" 
+          @input="resultOnInputHandler"
+        />
 
-    <input 
-      type="number" 
-      v-model="result" 
-      @input="resultOnInputHandler"
-    />
-
-    <select v-model="target" @change="targetOnChangeHandler">
-      <option 
-        v-for="currency in currenciesAvailabe" 
-        :value="currency" 
-        :key="currency">
-          {{$t(`currencyConverter.currencies.${currency}`)}}
-        </option>
-    </select>
+        <select v-model="target" @change="targetOnChangeHandler" class="form-control spaced">
+          <option 
+            v-for="currency in currenciesAvailabe" 
+            :value="currency" 
+            :key="currency">
+              {{$t(`currencyConverter.currencies.${currency}`)}}
+            </option>
+        </select>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -156,3 +163,18 @@ export default {
   }
 }
 </script>
+^
+<style scoped>
+.currency-converter {
+  width: 30%;
+  color: var(--primary-color);
+}
+
+.jumbotron {
+  background-color: var(--secondary-color);
+}
+
+.spaced {
+  margin: 2%;
+}
+</style>
