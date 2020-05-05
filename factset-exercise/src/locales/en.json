@@ -1,0 +1,13 @@
+{
+  "currencyConverter": {
+    "equals": "equals",
+    "currencies": {
+      "EUR": "Euro",
+      "USD": "US Dollar",
+      "SFK": "Swiss Franks",
+      "GBP": "Great British Pounds",
+      "JPY": "Japan Yen",
+      "CAD": "Canada Dollar"
+    }
+  }
+}
