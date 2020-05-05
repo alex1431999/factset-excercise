@@ -1,7 +1,7 @@
 <template>
   <div class="currency-converter container">
     <div class="jumbotron">
-      <p v-if="typeof(base) === 'string' && typeof(target) === 'string'">
+      <p v-if="currenciesSelected">
         {{value}} {{$t(`currencyConverter.currencies.${base}`)}} {{$t(`currencyConverter.equals`)}} {{result}} {{$t(`currencyConverter.currencies.${target}`)}}
       </p>
 
@@ -88,6 +88,10 @@ export default {
 
       return currencies
     },
+
+    currenciesSelected() {
+      return typeof(this.target) === 'string' && typeof(this.base) === 'string'
+    },
   },
 
   mounted() {
@@ -105,13 +109,12 @@ export default {
   },
 
   methods: {
-
     /**
      * Set value using conversion
      */
     setValue() {
       /* Only trigger if both currencies have been selected */
-      if (typeof(this.target) === 'string' && typeof(this.base) === 'string') {
+      if (this.currenciesSelected) {
         this.value = this.currencyConverter.convert(this.target, this.base, this.result)
       }
     },
@@ -122,7 +125,7 @@ export default {
      */
     setResult() {
       /* Only trigger if both currencies have been selected */
-      if (typeof(this.target) === 'string' && typeof(this.base) === 'string') {
+      if (this.currenciesSelected) {
         this.result = this.currencyConverter.convert(this.base, this.target, this.value)
       }
     },
