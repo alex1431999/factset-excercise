@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <CurrencyConverter :currencies="currencies"/>
+    <CurrencyConverter :currencies="currencies" />
   </div>
 </template>
 
 <script>
-import CurrencyConverter from '@/components/CurrencyConverter.vue'
-import currencies from '@/data/currencies.json'
+/* eslint-disable import/no-unresolved  */
+import CurrencyConverter from '@/components/CurrencyConverter.vue';
+import currencies from '@/data/currencies.json';
 
 export default {
   name: 'App',
@@ -17,9 +18,9 @@ export default {
   data() {
     return {
       currencies,
-    }
+    };
   },
-}
+};
 </script>
 
 <style>
